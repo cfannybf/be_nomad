@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 from json import dumps
 from flask import jsonify
 from filter import Filter
+from search.search_hub import SearchHub
 
 app = Flask(__name__)
 api = Api(app)
@@ -10,9 +11,9 @@ api = Api(app)
 class Search(Resource):
     def get(self):
         query = request.args
-        f = Filter()
-        f.ParseArgs(query)
-        result = {'keywords': f.keywords, 'min_salary': f.min_salary}
+        filter = Filter()
+        filter.ParseArgs(query)
+        result = {'results': SearchHub().Search(filter)}
         return jsonify(result)
 
 api.add_resource(Search, '/search')
