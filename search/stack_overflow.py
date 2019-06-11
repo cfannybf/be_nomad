@@ -6,6 +6,6 @@ class StackOverflow(SearchBase):
         SearchBase.__init__(self, 'stack_overflow', 'https://stackoverflow.com/jobs?r=true')
     
     def Search(self, filter):
-        result = self.SendQuery(filter)
+        result = self.SendQuery(self.BuildQuery(filter))
         retval = StackOverflowParser().ParseResult(result)
         return SearchBase.Search(self, retval)

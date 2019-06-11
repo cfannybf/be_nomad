@@ -1,8 +1,12 @@
 from search.stack_overflow import *
+from search.remoteok import *
 
 class SearchHub:
     def __init__(self):
-        self.search_nodes = {'stack_overflow': StackOverflow()}
+        self.search_nodes = {
+            'stack_overflow': StackOverflow(),
+            'remoteok': RemoteOk()
+        }
     
     def Search(self, filter):
         result = []
