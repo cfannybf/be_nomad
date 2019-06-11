@@ -1,11 +1,13 @@
 from search.stack_overflow import *
 from search.remoteok import *
+from search.wework import *
 
 class SearchHub:
     def __init__(self):
         self.search_nodes = {
             'stack_overflow': StackOverflow(),
-            'remoteok': RemoteOk()
+            'remoteok': RemoteOk(),
+            'wework': WeWork()
         }
     
     def Search(self, filter):
