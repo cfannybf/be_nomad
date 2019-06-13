@@ -9,3 +9,11 @@ class StackOverflow(SearchBase):
         result = self.SendQuery(self.BuildQuery(filter))
         retval = StackOverflowParser().ParseResult(result)
         return SearchBase.Search(self, retval)
+    
+    def BuildQuery(self, filter):
+        query = self.base_query
+        if filter.keywords:
+            query = query + '&q={}'.format(filter.keywords)
+        if filter.min_salary > 0:
+            query = query + '&s={}&c={}'.format(str(filter.min_salary), filter.currency)
+        return query

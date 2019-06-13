@@ -9,14 +9,6 @@ class SearchBase:
     
     def Search(self, result):
         return {'source': self.name, 'result': result}
-    
-    def BuildQuery(self, filter):
-        query = self.base_query
-        if filter.keywords:
-            query = query + '&q={}'.format(filter.keywords)
-        if filter.min_salary > 0:
-            query = query + '&s={}&c={}'.format(str(filter.min_salary), filter.currency)
-        return query
 
     def SendQuery(self, query):
         f =  urllib.request.urlopen(Request(query, data=None, headers={
