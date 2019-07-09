@@ -4,9 +4,11 @@ from json import dumps
 from flask import jsonify
 from filter import Filter
 from search.search_hub import SearchHub
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app)
 
 class Search(Resource):
     def get(self):

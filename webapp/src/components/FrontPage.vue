@@ -36,7 +36,7 @@
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
-                  <input id="keywords" type="text" />
+                  <input id="keywords" type="text" v-model="keywords" />
                   <label for="kewords">Keywords</label>
                 </div>
               </div>
@@ -44,9 +44,9 @@
           </div>
           <div class="row center">
             <a
-              href="#search_result"
               id="download-button"
               class="btn-large waves-effect waves-light light-blue darken-4"
+              v-on:click="search"
             >Find</a>
           </div>
           <br />
@@ -65,12 +65,21 @@ export default {
   name: "FrontPage",
   data () {
     return {
-      state: false
+      state: false,
+      keywords: ''
     }
   },
   methods: {
     toggleState: function() {
         this.state = !this.state;
+    },
+    search: function() {
+      if (!this.keywords) {
+        return;
+      }
+      axios
+      .get('http://127.0.0.1:5002/search?keywords=' + this.keywords)
+      .then(response => (console.log(response)));
     }
   }
 };
