@@ -78,7 +78,7 @@ export default {
     return {
       state: false,
       keywords: "",
-      errors: ''
+      errors: ""
     };
   },
   methods: {
@@ -86,7 +86,7 @@ export default {
       this.state = !this.state;
     },
     search: function() {
-      this.errors = '';
+      this.errors = "";
       if (!this.keywords) {
         this.errors += "Empty search. ";
         return;
@@ -97,7 +97,7 @@ export default {
       }
       axios
         .get("http://127.0.0.1:5002/search?keywords=" + this.keywords)
-        .then(response => console.log(response));
+        .then(response => this.$root.$emit('search', response));
     },
     validKeywords: function() {
       var re = /^[a-zA-Z0-9,\.\+\-#]+$/;

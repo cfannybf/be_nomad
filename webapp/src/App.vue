@@ -35,12 +35,6 @@ p {
   color: #26a69a;
 }
 
-.tags {
-  font-weight: bold;
-  font-family: monospace;
-  padding-top: 20px;
-}
-
 .parallax-container {
   min-height: 847px;
   line-height: 0;
