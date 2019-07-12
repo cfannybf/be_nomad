@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <nav class="indigo darken-4" role="navigation">
+    <nav role="navigation">
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo">Logo</a>
         <ul class="right hide-on-med-and-down">
@@ -27,3 +27,10 @@ export default {
   name: "NavBar"
 };
 </script>
+
+<style scoped>
+nav {
+  background-color: transparent;
+  box-shadow: none;
+}
+</style>

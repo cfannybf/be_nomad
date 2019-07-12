@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <NavBar />
     <FrontPage />
     <SearchResults />
     <FooterComponent />
@@ -8,7 +7,6 @@
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue";
 import FrontPage from "./components/FrontPage.vue";
 import SearchResults from "./components/SearchResults.vue";
 import FooterComponent from "./components/FooterComponent.vue";
@@ -16,7 +14,6 @@ import FooterComponent from "./components/FooterComponent.vue";
 export default {
   name: "app",
   components: {
-    NavBar,
     FrontPage,
     SearchResults,
     FooterComponent

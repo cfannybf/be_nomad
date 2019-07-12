@@ -1,5 +1,6 @@
 <template>
   <div class="frontpage">
+    <NavBar />
     <div id="index-banner" class="parallax-container">
       <div class="section no-pad-bot">
         <div class="container scale-transition" id="get_started" v-bind:class="{ 'scale-out': state, hidden: state }">
@@ -53,14 +54,13 @@
           <br />
         </div>
       </div>
-      <div class="parallax">
-        <img class="image" src="../assets/back_1.jpeg" alt="Unsplashed background img" />
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import NavBar from "./NavBar.vue";
+
 export default {
   name: "FrontPage",
   data () {
@@ -81,6 +81,9 @@ export default {
       .get('http://127.0.0.1:5002/search?keywords=' + this.keywords)
       .then(response => (console.log(response)));
     }
+  },
+  components: {
+    NavBar
   }
 };
 </script>
@@ -88,5 +91,9 @@ export default {
 <style scoped>
 .hidden {
   display: none;
+}
+
+.frontpage {
+  background-image: url("../assets/back_1.jpeg");
 }
 </style>
