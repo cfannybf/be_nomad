@@ -87,6 +87,8 @@ export default {
     },
     search: function() {
       this.errors = "";
+      this.$root.$emit('clear_results', '');
+      
       if (!this.keywords) {
         this.errors += "Empty search. ";
         return;

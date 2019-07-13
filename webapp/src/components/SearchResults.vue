@@ -5,20 +5,15 @@
         <h5 class="center">Search results</h5>
       </div>
 
-      <div class="row">
-        <div class="col s4" v-for="job in rendered">
-          <div class="card light-blue lighten-4">
-            <div class="card-content grey-text text-darken-1">
-              <span class="card-title">{{job.company}}</span>
-              <p>
-                {{job.title}}
-              </p>
-              <p class="tags"><span v-for="tag in job.tags">{{tag}} </span></p>
-            </div>
-            <div class="card-action">
-              <a :href="job.link">{{job.source}}</a>
-            </div>
-          </div>
+      <div class="row" v-for="job in rendered">
+        <div class="container">
+          <h4><a :href="job.link">{{job.company}}</a></h4>
+          <p class="job-result">{{job.title}}</p>
+          <p class="tags job-result">
+            <span v-for="tag in job.tags">{{tag}} </span>
+          </p>
+          <p class="job-result"><a class="job-link" :href="job.link">{{job.link}}</a></p>
+          <br />
         </div>
       </div>
     </div>
@@ -36,7 +31,7 @@ export default {
   },
   methods: {
     displayResult: function() {
-      this.rendered = []//this.result.data.results[0].result;
+      this.rendered = []; //this.result.data.results[0].result;
       this.result.data.results.forEach(element => {
         element.result.forEach(res => {
           res.source = element.source;
@@ -45,24 +40,36 @@ export default {
       });
     }
   },
-  mounted: function () {
-    this.$root.$on('search', (result) => {
+  mounted: function() {
+    this.$root.$on("search", result => {
       this.result = result;
       this.displayResult();
+    });
+    this.$root.$on("clear_results", result => {
+      this.result = null;
+      this.rendered = null;
     });
   }
 };
 </script>
 
 <style scoped>
-.card-content {
-  height: 200px;
-  overflow-y: hidden;
-}
-
 .tags {
   font-weight: bold;
   font-family: monospace;
-  padding-top: 20px;
+  padding-top: 15px;
+}
+
+p.job-result {
+  margin: 0px;
+  padding: 0px;
+}
+
+.job-link {
+  color: #9fa8da;
+}
+
+h4 {
+  margin-bottom: 0px;
 }
 </style>
