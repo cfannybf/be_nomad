@@ -30,6 +30,7 @@ class WeWorkParser:
         idx = job.find('a href="') + len ('a href="')
         fin = job.find('">', idx)
         link = job[idx:fin]
+        link = 'https://weworkremotely.com' + link
 
         idx = job.find('class=company>', idx) + len('class=company>')
         fin = job.find('</span', idx)

@@ -1,22 +1,22 @@
 <template>
   <div class="navbar">
-    <nav class="indigo darken-4" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <nav role="navigation">
+      <div id="nav-mobile" class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">be nomad</a>
         <ul class="right hide-on-med-and-down">
           <li>
-            <a href="#">Navbar Link</a>
+            <a href="#">Home</a>
           </li>
-        </ul>
-
-        <ul id="nav-mobile" class="sidenav">
           <li>
-            <a href="#">Navbar Link</a>
+            <a href="#">FAQ</a>
+          </li>
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <a href="#">Report bug</a>
           </li>
         </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-          <i class="material-icons">menu</i>
-        </a>
       </div>
     </nav>
   </div>
@@ -27,3 +27,10 @@ export default {
   name: "NavBar"
 };
 </script>
+
+<style scoped>
+nav {
+  background-color: transparent;
+  box-shadow: none;
+}
+</style>

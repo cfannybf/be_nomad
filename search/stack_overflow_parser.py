@@ -29,6 +29,7 @@ class StackOverflowParser:
         idx = result.find('a href="', idx) + len('a href="')
         endLink = result.find('"', idx)
         link = result[idx : endLink]
+        link = 'https://stackoverflow.com' + link
 
         title = result.find('title="', idx) + len('title="')
         endTitle = result.find('"', title)
